@@ -1,0 +1,25 @@
+{
+  "name": "vizq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sikuli/vizq.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sikuli/vizq/issues"
+  },
+  "homepage": "https://github.com/sikuli/vizq",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
