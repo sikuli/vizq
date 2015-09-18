@@ -10,3 +10,19 @@ A.groupBy('CrsLvlNum')
 //console.log(A.current)
 console.log(JSON.stringify(A.get(),null, ' '))
 // console.log(JSON.stringify(_.pluck(A.get(),'count'),null, ' '))
+
+
+var q = {
+    Subject: 'col',
+    CrsLvlNum: 'col'
+}
+
+function eval(q){
+    A.reset()    
+    A.select(_.keys(q))
+    _.forIn(q, function(val, key){
+        if (val == 'col')
+            A.groupBy(key)
+    })
+    return A.get()
+}
