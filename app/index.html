@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Chartist Tests</title>
+    <link rel="stylesheet"
+          href="bower_components/chartist/dist/chartist.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+  </head>
+  <body>
+    <!-- Site content goes here !-->
+
+    <div style="height:50%;width:100%;padding:10px;">
+        <div class="row">
+            <form class="col s10">
+              <div class="row">
+                <div class="input-field col s2">
+                  <input placeholder="file_callsites" id="field" type="text"
+                    class="validate" value="file_callsites">
+                  <label for="first_name">field</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="pattern"
+                    type="text" class="validate" value="java.util.Calendar.get(int)">
+                  <label for="last_name">pattern</label>
+                </div>
+                <div class="input-field col s4">
+                    <a id="run" class="waves-effect waves-light btn">Run</a>
+                </div>
+              </div>
+          </form>
+        </div>
+
+        <div><span id="numRecordsProcessed">0</span> records processed.</div>
+        <div class="ct-chart .ct-square"></div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+
+    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="bower_components/lodash/lodash.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io('http://localhost:4040');
+      socket.on('news', function (data) {
+            var chartData = {
+                labels: _.keys(data.hist),
+                series: [_.values(data.hist)]
+            }
+            new Chartist.Line('.ct-chart', chartData)
+            $("#numRecordsProcessed").html(data.total)
+      })
+
+      $('#run').click(function(){
+
+          var pattern = $('#pattern').val()
+          var field = $('#field').val()
+          var options = {field:field, pattern: pattern}
+          console.log(options)
+          socket.emit('run', options)
+      })
+    </script>
+  </body>
+</html>

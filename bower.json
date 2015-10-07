@@ -1,0 +1,25 @@
+{
+  "name": "vizq",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sikuli/vizq",
+  "authors": [
+    "Tom Yeh <doubleshow@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chartist": "~0.9.4",
+    "lodash": "~3.10.1",
+    "jquery": "~2.1.4"
+  }
+}

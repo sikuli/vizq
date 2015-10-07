@@ -10,10 +10,11 @@ function test(q){
 }
 
 // test({
+//     CrsLvlNum: 'col',
 //     Subject: 'col',
-//     CrsLvlNum: 'col'
+//     Hours: 'col'
 // })
-//
+// //
 // test({
 //     Subject: 'col',
 //     Hours: 'col'
@@ -47,13 +48,5 @@ function test(q){
 // })
 //
 // test({
-//     Subject: 'col',
-//     Workload: {
-//         Raw: 'round | col'
-//     }
+//     Subject: 'col'
 // })
-
-
-test({
-    Subject: 'col'
-})

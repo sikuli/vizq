@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/sikuli/vizq",
   "dependencies": {
-    "lodash": "^3.10.1"
+    "express": "^4.13.3",
+    "glob": "^5.0.15",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "socket.io": "^1.3.7"
   }
 }
