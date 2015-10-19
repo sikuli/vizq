@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My first Chartist Tests</title>
+    <title>MUSE Viz</title>
     <link rel="stylesheet"
           href="bower_components/chartist/dist/chartist.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="input-field col s6">
                   <input id="pattern"
-                    type="text" class="validate" value="java.util.Calendar.get(int)">
+                    type="text" class="validate" value="setTag">
                   <label for="last_name">pattern</label>
                 </div>
                 <div class="input-field col s4">
@@ -34,6 +34,14 @@
         <div><span id="numRecordsProcessed">0</span> records processed.</div>
         <div class="ct-chart .ct-square"></div>
     </div>
+    <style>
+    .ct-horizontal-bars .ct-label .ct-vertical {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    </style>
+    <div class="ct-chart1 ct-major-third" style="left:100px;"></div>
 
     <!-- Compiled and minified JavaScript -->
 
@@ -51,6 +59,16 @@
                 series: [_.values(data.hist)]
             }
             new Chartist.Line('.ct-chart', chartData)
+
+            // new Chartist.Bar('.ct-chart1', chartData, {
+            //   seriesBarDistance: 2,
+            //   horizontalBars: true,
+            //   reverseData: true,
+            //   axisY: {
+            //     offset: 300
+            //   }
+            // })
+
             $("#numRecordsProcessed").html(data.total)
       })
 
